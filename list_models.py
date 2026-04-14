@@ -1,0 +1,12 @@
+import os
+from dotenv import load_dotenv
+from pathlib import Path
+load_dotenv(Path("backend/.env"))
+
+from google import genai
+try:
+    client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
+    for m in client.models.list():
+        print(m.name)
+except Exception as e:
+    print("Error:", e)

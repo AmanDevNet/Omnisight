@@ -1,0 +1,10 @@
+venv/
+node_modules/
+__pycache__/
+*.db
+chroma_db/
+.env
+.next/
+*.log
+models_out.txt
+.DS_Store
