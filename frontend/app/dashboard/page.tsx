@@ -9,7 +9,8 @@ import { useNetworkStore } from "@/store/useNetworkStore";
 
 // Silent component that bridges the WebSocket hook into the Zustand store
 function NetworkHydrator({ apiKey }: { apiKey: string }) {
-  const { devices, hostInfo, isConnected, lastUpdate, error } = useWebSocket(`ws://localhost:8000/ws?api_key=${apiKey}`);
+  const wsUrl = process.env.NEXT_PUBLIC_WS_URL || "ws://localhost:8000/ws";
+  const { devices, hostInfo, isConnected, lastUpdate, error } = useWebSocket(`${wsUrl}?api_key=${apiKey}`);
   const setDevices = useNetworkStore((state) => state.setDevices);
   const setConnectionStatus = useNetworkStore((state) => state.setConnectionStatus);
   const setHostInfo = useNetworkStore((state) => state.setHostInfo);
