@@ -28,7 +28,10 @@ export default function OmniChat({ isOpen, onClose }: { isOpen: boolean, onClose
     try {
       const res = await fetch("http://localhost:8000/api/rag/query", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { 
+          "Content-Type": "application/json",
+          "x-api-key": localStorage.getItem("omnisight_api_key") || ""
+        },
         body: JSON.stringify({ message: userText })
       });
       const data = await res.json();

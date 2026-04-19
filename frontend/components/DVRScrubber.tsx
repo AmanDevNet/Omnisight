@@ -16,7 +16,9 @@ export default function DVRScrubber() {
 
   useEffect(() => {
     if (isDVRMode) {
-       fetch("http://localhost:8000/api/dvr/bounds")
+       fetch("http://localhost:8000/api/dvr/bounds", {
+         headers: { "x-api-key": localStorage.getItem("omnisight_api_key") || "" }
+       })
          .then(r => r.json())
          .then(data => {
             if (data.min && data.max) {
@@ -33,7 +35,9 @@ export default function DVRScrubber() {
   useEffect(() => {
     if (!isDVRMode || currentTs === 0) return;
     
-    fetch(`http://localhost:8000/api/dvr/snapshot/${currentTs}`)
+    fetch(`http://localhost:8000/api/dvr/snapshot/${currentTs}`, {
+      headers: { "x-api-key": localStorage.getItem("omnisight_api_key") || "" }
+    })
       .then(r => r.json())
       .then(data => {
          if (data.data) {

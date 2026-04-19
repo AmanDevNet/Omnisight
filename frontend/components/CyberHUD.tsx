@@ -4,6 +4,7 @@ import { useNetworkStore } from "@/store/useNetworkStore";
 import { useEffect, useState } from "react";
 import { Search, Activity, LayoutGrid, WifiHigh, RadioTower, Clock, Map } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useRouter } from "next/navigation";
 import OmniChat from "./OmniChat";
 import AnalyticsPanel from "./AnalyticsPanel";
 import BandwidthPanel from "./BandwidthPanel";
@@ -23,6 +24,7 @@ export default function CyberHUD() {
   const anomalousCount = devices.filter(d => d.is_anomalous).length;
   const totalBandwidth = devices.reduce((acc, d) => acc + (d.bandwidth_bps || 0), 0);
 
+  const router = useRouter();
   const [sysTime, setSysTime] = useState<string>("");
   const [isOmniOpen, setIsOmniOpen] = useState(false);
   const [isAnalyticsOpen, setIsAnalyticsOpen] = useState(false);
@@ -127,8 +129,12 @@ export default function CyberHUD() {
              </div>
           </div>
 
-          <div className="pl-6 border-l border-white/10 text-neutral-400 text-sm font-medium">
+          <div className="pl-6 border-l border-white/10 text-neutral-400 text-sm font-medium flex items-center gap-4">
              {sysTime}
+             <div className="flex gap-2">
+                 <button onClick={() => router.push("/dashboard/setup")} className="text-xs bg-cyan-950/40 hover:bg-cyan-900 border border-cyan-800/50 text-cyan-400 px-3 py-1 rounded transition pointer-events-auto">Agent Setup</button>
+                 <button onClick={() => { localStorage.removeItem("omnisight_api_key"); router.push("/"); }} className="text-xs text-rose-400 hover:text-rose-300 px-2 py-1 transition pointer-events-auto">Logout</button>
+             </div>
           </div>
         </div>
       </motion.div>
