@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="OmniSight Banner" width="100%" style="border-radius: 10px; margin-bottom: 20px;"/>
+  <img src="assets/hero-dashboard.png" alt="OmniSight Dashboard" width="100%" style="border-radius: 10px; margin-bottom: 20px; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5); border: 1px solid rgba(255, 255, 255, 0.1);"/>
   
   <h1>OmniSight Network Visualizer</h1>
   <p><strong>Self-Hosted 3D Network Telemetry & AI Anomaly Detection System</strong></p>
@@ -52,6 +52,20 @@ OmniSight operates using a distributed design pattern, cleanly separated into th
 * **OmniChat (AI Analyst)**: Ask questions like *"Did any unknown devices connect last night?"* and receive mathematically accurate answers derived from vector-embedded network logs.
 * **Network DVR Time Machine**: Scrub backward in time to see exactly what your network looked like during past outages or latency spikes.
 * **Locally Isolated / Zero Cloud Dependency**: Operates powerfully on a local machine to ensure network scan data never has to leave your premises.
+
+---
+
+## 📸 Interface Showcases
+
+| **Machine Learning Device Profiling** | **Live Network Analytics** |
+|:---:|:---:|
+| <img src="assets/device-inspector.png" width="100%" style="border-radius: 6px;"/> | <img src="assets/analytics-panel.png" width="100%" style="border-radius: 6px;"/> |
+| *Native OS Fingerprinting, Confidence Scoring, and ML Threat Flags.* | *Hardware splits, Latency distributions, and degraded nodes over time.* |
+
+<div align="center">
+  <img src="assets/signal-heatmap.png" width="100%" style="border-radius: 6px;"/>
+  <p><em><strong>Signal Topology View:</strong> 3D Heatmapping of local network congestion.</em></p>
+</div>
 
 ---
 
